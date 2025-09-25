@@ -1,0 +1,6 @@
+s = input().rstrip()
+
+if s.replace(" ", "").lower() == s.replace(" ", "").lower()[::-1]:
+    print("PAL")
+else:
+    print(s[-1] + s[1:-1] + s[0] if len(s) > 1 else s)
