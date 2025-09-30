@@ -1,0 +1,19 @@
+password = input()
+
+vowels_lower = "aeiou"
+next_lower = "eioua"
+
+vowels_upper = "AEIOU"
+next_upper = "EIOUA"
+
+result = ""
+
+for ch in password:
+    if ch in vowels_lower:
+        result += next_lower[vowels_lower.index(ch)]
+    elif ch in vowels_upper:
+        result += next_upper[vowels_upper.index(ch)]
+    else:
+        result += ch
+
+print(result)
