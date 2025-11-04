@@ -1,0 +1,33 @@
+class Student:
+    """This is custom student class"""
+    clgname = "MIET"
+    def updatecgpa(self,newcgpa):
+        self.cgpa = newcgpa
+    def __init__(self,sid,name,branch,sem,cgpa,email):
+        self.sid = sid
+        self.name = name
+        self.branch= branch
+        self.sem = sem
+        self.cgpa = cgpa
+        self.email= email
+        
+    def printDetails(self):
+        print(f"""
+Sid     : {self.sid}
+Name    : {self.name}
+Branch  : {self.branch}
+Semister: {self.sem}
+CGPA    : {self.cgpa}
+Email   : {self.email}
+Col Name: {Student.clgname}
+""")
+
+s1 = Student(101,"Saransh","CSE",5,9.5,"ss7465547@gmail.com")
+s2 = Student(102,"James","IT",6,7,"James@gmail.com")
+s1.printDetails()
+s2.printDetails()
+
+s1.updatecgpa(9.9)
+s2.updatecgpa(7.9)
+s1.printDetails()
+s2.printDetails()
