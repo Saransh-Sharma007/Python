@@ -1,0 +1,72 @@
+class StudentRecord:
+    def __init__(self, name, rollno, marks):
+        self.name = name
+        self.rollno = rollno
+        self.marks = marks
+        self.percentage = 0.0
+        self.grade = ""
+
+    def calc_percentage(self):
+        return sum(self.marks) / len(self.marks)
+
+    def assign_grade(self, perc):
+        if perc >= 90:
+            return "A+"
+        elif perc >= 80:
+            return "B+"
+        elif perc >= 70:
+            return "C+"
+        elif perc >= 60:
+            return "D+"
+        elif perc >= 50:
+            return "F+"
+        else:
+            return "F"
+
+    def evaluate(self):
+        self.percentage = self.calc_percentage()
+        self.grade = self.assign_grade(self.percentage)
+
+    def display(self):
+        print(f"""
+Roll No   : {self.rollno}
+Name      : {self.name}
+Percentage: {self.percentage:.2f}%
+Grade     : {self.grade}
+""")
+
+
+students = []
+n = int(input("Enter number of students (max 100): "))
+
+for i in range(n):
+    print(f"\nEnter details of student {i+1}:")
+    name = input("Name: ")
+    rollno = int(input("Roll No: "))
+    marks = list(map(float, input("Enter marks in 5 subjects (space-separated): ").split()))
+
+    s = StudentRecord(name, rollno, marks)
+    s.evaluate()
+    students.append(s)
+
+print("\n-------- Student Records --------")
+for s in students:
+    s.display()
+
+top_student = max(students, key=lambda s: s.percentage)
+
+print("\nTop Performer:")
+top_student.display()
+
+avg_percentage = sum(s.percentage for s in students) / len(students)
+
+print(f"\nClass Average Percentage: {avg_percentage:.2f}%")
+
+if avg_percentage < 50:
+    print("Suggestion: Focus more on studies.")
+elif avg_percentage < 70:
+    print("Suggestion: Work harder, can improve.")
+elif avg_percentage < 85:
+    print("Suggestion: Good, but can be better.")
+else:
+    print("Excellent overall class performance!")
