@@ -1,0 +1,39 @@
+class Bankaccount:
+    def __init__(self, account_number, balance):
+        self.account_number = account_number
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"{amount} deposited successfully")
+        else:
+            print("Invalid amount")
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            print("Invalid amount")
+        elif amount > self.balance:
+            print("Insufficient balance")
+        else:
+            self.balance -= amount
+            print(f"{amount} withdrawn successfully")
+
+    def display(self):
+        print(f"""
+Account Number = {self.account_number}
+Balance        = {self.balance}
+""")
+
+    def check_balance(self):
+        print(f"Current Balance: {self.balance}")
+
+
+a1 = Bankaccount(600566, 1200000)
+a1.display()
+
+a1.deposit(5000)
+a1.check_balance()
+
+a1.withdraw(1205500)
+a1.check_balance()
