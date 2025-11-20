@@ -1,0 +1,26 @@
+class Person():
+    def __init__(self,name,age,phoneno):
+        self.name = name
+        self.age = age
+        self.phoneno = phoneno
+        
+    def display(self):
+        print(f"""
+Age       : {self.age}
+Name      : {self.name}
+Pnone No. : {self.phoneno}""")
+class Employee(Person):
+    def __init__(self,name,age,phoneno,salary,Department):
+        super().__init__(name,age,phoneno)
+        self.salary = salary
+        self.Department = Department
+    def printEmp(self):
+        print(f"""
+Salary    : {self.salary}
+Department: {self.Department}""")
+
+p1 = Person("Saransh Sharma",20, 6005662106)
+p1.display()
+e1 = Employee("Saransh Sharma",20, 6005662106,2000000,"Software Develpoer")
+e1.display()
+e1.printEmp()
