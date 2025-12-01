@@ -1,0 +1,14 @@
+s = int(input())
+votes = {}
+
+for _ in range(s):
+    name = input().strip()     
+    votes[name] = votes.get(name, 0) + 1
+
+for candidate, count in votes.items():
+    print(f"{candidate} got {count} votes")
+
+max_votes = max(votes.values())
+winners = [name for name, count in votes.items() if count == max_votes]
+
+print("Winner(s):", " ".join(winners))
